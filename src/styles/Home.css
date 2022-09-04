@@ -1,0 +1,29 @@
+.outer{
+    display: flex;
+   
+    padding: 20px 20px;
+    /* border: 1px solid red; */
+    width: 100%;
+    height: 100%;
+}
+.first{
+    /* border: 1px solid red; */
+    width: 20%;
+    height: 100%;
+    
+}
+.sec{
+    padding: 20px 20px;
+    border-left: 1px solid red;
+  width: 70%; 
+    height: 100%; 
+
+}
+.text{
+    font-size: large;
+    font-weight: 600;
+}
+.out{
+    /* display: flex; */
+    padding: 10px 10px;
+}

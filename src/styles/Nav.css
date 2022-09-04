@@ -1,0 +1,17 @@
+.nav{
+    background-color: cornflowerblue;
+}
+.but{
+    background-color: rgb(207, 212, 216);
+    padding: 6px 6px;
+    border: none;
+   
+}
+.bigger{
+    display: flex;
+    justify-content: space-between;
+}
+.left{
+    display: flex;
+    gap: 20px;
+}

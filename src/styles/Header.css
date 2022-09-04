@@ -1,0 +1,21 @@
+
+.bigger{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+}
+.left{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+.left img{
+    cursor: pointer;
+}
+.but{
+    background-color: rgb(207, 212, 216);
+    padding: 6px 6px;
+    border: none;
+    /* border-radius: 2rem; */
+}
