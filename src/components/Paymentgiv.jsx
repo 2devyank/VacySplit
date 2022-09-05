@@ -5,7 +5,7 @@ import { useUserAuth } from '../context/UserAuthContext'
 import "../styles/Payment.css"
 import Nav from './Nav';
 import GooglePayButton from "@google-pay/button-react"
-import Payment from './Payment';
+// import Payment from './Payment';
 
 function Paymentgiv() {
     const{expensive,userdet}=useUserAuth();
