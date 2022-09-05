@@ -140,7 +140,7 @@ useEffect(()=>{
 // console.log(money)
 // console.log(userdet.name.toString())
 
-
+// console.log(import.meta.env.VITE_KEY);
 return(
     <userAuthcontext.Provider value={{setdata,user,signup,login,logout,googlesignin,userdet,data,expensive}}>
         {children}

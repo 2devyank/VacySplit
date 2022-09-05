@@ -2,7 +2,7 @@
 import { doc, serverTimestamp, setDoc } from 'firebase/firestore';
 import React, { useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useUserAuth } from '../context/UserAuthContext';
 import { auth ,db} from '../firebase';
 import "../styles/User.css"
@@ -60,6 +60,9 @@ navigate("/home")
             Update the Profile
         </Button>
         </Form>
+        <div className='p-4 box mt-3 text-center'>
+      Already Updated Profile Details Head Over To <Link to='/home'>Profile</Link>
+    </div>
     </div>
     </div>
     </div>

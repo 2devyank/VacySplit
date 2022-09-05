@@ -52,9 +52,9 @@ const sum=pay.reduce((a, b) => a + b,0);
         <div>
         <Table striped>
       <tbody>
-          { pay.length >0 ?(data.map((data)=>(
+          { pay.length >0 ?(data.map((data,index)=>(
        userdet.name!==data.name ?(
-          <tr>
+          <tr key={index}>
           <td>{data.name}</td>
            <td>₹ {sum.toString().substr(1)}</td>
          </tr>):(

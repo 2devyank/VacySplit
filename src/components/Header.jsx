@@ -116,8 +116,8 @@ function Header() {
             <FloatingLabel controlId="floatingSelect" label="Paid By">
       <Form.Select aria-label="Floating label select example"  onChange={(e)=>setusername(e.target.value)}>
       <option>name</option>
-        {data.map((data)=>(
-          <option>{data.name}</option>
+        {data.map((data,index)=>(
+          <option key={index}>{data.name}</option>
         ))}
       
       </Form.Select>

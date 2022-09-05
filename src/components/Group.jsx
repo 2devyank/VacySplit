@@ -58,8 +58,8 @@ console.log(err);
         </tr>
       </thead>
       <tbody>
-          {data.map((data)=>(
-        <tr>
+          {data.map((data,index)=>(
+        <tr key={index}>
 <td><img src={grp} style={{width:"35px"}}  /></td>
           <td>{data.name}</td>
 
@@ -87,8 +87,8 @@ console.log(err);
         </tr>
       </thead>
       <tbody>
-          {expensive.map((expensive)=>(
-        <tr>
+          {expensive.map((expensive,index)=>(
+        <tr key={index}>
 
           <td>{expensive.description}</td>
 

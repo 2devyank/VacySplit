@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import { useUserAuth } from '../context/UserAuthContext'
 import "../styles/Payment.css"
 import Nav from './Nav';
+import GooglePayButton from "@google-pay/button-react"
+import Payment from './Payment';
 
 function Paymentgiv() {
     const{expensive,userdet}=useUserAuth();
@@ -23,9 +25,9 @@ function Paymentgiv() {
         <div>
         <Table striped>
       <tbody>
-          {expensive.map((expensive)=>(
+          {expensive.map((expensive,index)=>(
         userdet.name!==expensive.name?( 
-          <tr>
+          <tr key={index}>
           <td>{expensive.name}</td>
            <td>Pay ₹{expensive.share}</td>
          </tr>
@@ -38,6 +40,7 @@ function Paymentgiv() {
       </tbody>
     </Table>
         </div>
+        {/* <Payment/> */}
     </div>
     </div>
     </>
