@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 
-import { doc, getDoc,onSnapshot } from "firebase/firestore";
-import { db } from '../firebase';
 import Nav from './Nav';
 import "../styles/Home.css"
 import img from "../assets/profile.svg"
 import { useUserAuth } from '../context/UserAuthContext';
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 
 function Home() {
@@ -27,8 +27,8 @@ function Home() {
 //   fetchdata();
 // },[])
 
-console.log(userdet);
- 
+// console.log(userdet);
+localStorage.setItem('name',userdet.name);
   
   return (
     <>
@@ -42,31 +42,41 @@ console.log(userdet);
     <div className='out'>
       
       <div className='text'>Name :</div>
+      <span className='res'>
     {userdet.name}
+
+      </span>
+
       </div>
    <div  className='out'>
       <div className='text'>Address :</div>
-      {userdet.address}
+      <span  className='res' >
+        {userdet.address}
+        </span>
      </div>
     <div  className='out'>
       <div className='text'>Email :</div>
+      <span className='res'>
+
       {userdet.email}
+      </span>
       </div>
     <div  className='out'>
 
     <div className='text'>Mobile No :</div>
+    <span className='res'>
+
     {userdet.mobile}
+    </span>
+
     </div>
     <div  className='out'>
 
-    <div className='text'>How much you lend money :</div>
-    {userdet.debt}
+   <Link to="/payment/pay">
+   <Button>Payment Transaction</Button>
+   </Link>
     </div>
-    <div  className='out'>
-      <div className='text'>how much money you will get :</div>
-     {userdet.credit}
-      </div>
-
+    
 
       
     </div>

@@ -5,6 +5,7 @@ import { useUserAuth } from '../context/UserAuthContext';
 import "../styles/Nav.css"
 import { doc, serverTimestamp, setDoc } from 'firebase/firestore';
 import { db } from '../firebase';
+import img from "../assets/profile.png"
 function Nav() {
 
   const {user,logout,userdet}=useUserAuth();
@@ -15,7 +16,7 @@ function Nav() {
     e.preventDefault();
     try{
 await logout();
-navigate("/login");
+navigate("/");
     }catch(err){
 console.log(err);
     }
@@ -28,6 +29,7 @@ console.log(err);
         await setDoc(doc(db,"group",user.uid),{
             name:userdet.name,
             mobile:userdet.mobile,
+            city:"true",
             timestamp:serverTimestamp(),
         });
         navigate("/group");
@@ -35,6 +37,10 @@ console.log(err);
         console.log(err)
     }
    
+}
+const visit=(e)=>{
+  e.preventDefault();
+  navigate("/home")
 }
 
 const viewgroup=(e)=>{
@@ -69,6 +75,7 @@ const viewgroup=(e)=>{
         Logout
       </button>
         </Navbar.Text>
+        <img src={img} style={{width:"6%",height:"20%"}} onClick={visit}/>
     </div>
    
     </Container>

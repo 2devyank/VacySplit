@@ -22,8 +22,18 @@
 .text{
     font-size: large;
     font-weight: 600;
+    width: 50%;
 }
 .out{
     /* display: flex; */
     padding: 10px 10px;
+    width: 100%;
+    /* border: 1px solid red; */
+
+}
+.res{
+    /* background-color:rgb(217, 217, 248); */
+    width: 50%;
+    /* border: 1px solid red; */
+    /* padding: 5px 50px; */
 }

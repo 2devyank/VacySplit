@@ -8,6 +8,9 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Userdetails from './components/Userdetails';
 import { useParams } from 'react-router-dom';
 import Group from './components/Group';
+import Paymentrec from './components/Paymentrec';
+import paymentgiv from './components/Paymentgiv';
+import Paymentgiv from './components/Paymentgiv';
 function App() {
  
   return (
@@ -16,11 +19,13 @@ function App() {
    
     <div>
       <Routes >
-      <Route path="/home" element={<ProtectedRoute><Home/></ProtectedRoute>} exact/>
-      <Route path="/login" element={<Login />} exact/>
+      <Route path="/home" element={<Home/>} exact/>
+      <Route path="/" element={<Login />} exact/>
       <Route path="/register" element={<Register />} exact/>
       <Route path="/user" element={<Userdetails />} exact/>
       <Route path="/group" element={<Group />} exact/>
+      <Route path="/payment/recieve" element={<Paymentrec />} exact/>
+      <Route path="/payment/pay" element={<Paymentgiv />} exact/>
       </Routes>
     </div>
 

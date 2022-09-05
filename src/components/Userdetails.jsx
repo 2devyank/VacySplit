@@ -2,12 +2,15 @@
 import { doc, serverTimestamp, setDoc } from 'firebase/firestore';
 import React, { useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom';
 import { useUserAuth } from '../context/UserAuthContext';
 import { auth ,db} from '../firebase';
+import "../styles/User.css"
 
 function Userdetails() {
-    const [data,setdata]=useState({name:'',mobile:'',address:'',email:'',debt:'',credit:''});
+    const [data,setdata]=useState({name:'',mobile:'',address:'',email:''});
     const {user}=useUserAuth();
+    const navigate=useNavigate();
 
 const handleadd=async(e)=>{
     e.preventDefault();
@@ -17,7 +20,7 @@ const handleadd=async(e)=>{
             ...data,
             timestamp:serverTimestamp(),
         });
-
+navigate("/home")
     }catch(err){
         console.log(err)
     }
@@ -25,9 +28,12 @@ const handleadd=async(e)=>{
 }
 
     return (
+      <div className='big'>
+      <div className="inner">
+
     <div>
-        {user&&user.email}
-        {user.uid}
+        <h2 className='text-center'>Enter Profile Details</h2>
+        <br />
         <Form onSubmit={handleadd}>
         <Form.Group className='mb-3'>
             <Form.Control type='name' placeholder='enter your name'
@@ -54,6 +60,8 @@ const handleadd=async(e)=>{
             Update the Profile
         </Button>
         </Form>
+    </div>
+    </div>
     </div>
   )
 }

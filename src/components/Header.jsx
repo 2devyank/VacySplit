@@ -23,7 +23,7 @@ function Header() {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-console.log(data.length);
+// console.log(data.length);
   const visit=(e)=>{
     e.preventDefault();
     navigate("/home")
@@ -40,9 +40,10 @@ console.log(data.length);
             share:share.toString(),
             recept:recept.toString(),
             description:description,
+            capital:"true",
             timestamp:serverTimestamp(),
         });
-       
+       setShow(false);
     }catch(err){
         console.log(err)
     }
@@ -107,12 +108,14 @@ console.log(data.length);
               <Form.Control
                 type="amount"
                 placeholder="Amount"
+                value={amount}
                 onChange={(e)=>setamount(e.target.value)}
                 autoFocus
               />
             </Form.Group>
             <FloatingLabel controlId="floatingSelect" label="Paid By">
-      <Form.Select aria-label="Floating label select example"   onChange={(e)=>setusername(e.target.value)}>
+      <Form.Select aria-label="Floating label select example"  onChange={(e)=>setusername(e.target.value)}>
+      <option>name</option>
         {data.map((data)=>(
           <option>{data.name}</option>
         ))}

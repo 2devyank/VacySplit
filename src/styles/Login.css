@@ -1,0 +1,17 @@
+.allt{
+    display:flex;
+
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+/* border: 1px solid red; */
+}
+.cent{
+    width: 50%;
+    height: 50%;
+   /* border: 1px solid red; */
+}
+.sel{
+    align-self: center;
+}

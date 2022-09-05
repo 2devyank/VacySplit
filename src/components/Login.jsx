@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import {Alert, Button, Form} from "react-bootstrap"
 import GoogleButton from 'react-google-button'
 import { useUserAuth } from '../context/UserAuthContext';
+import "../styles/Login.css"
 
 function Login() {
   const [email, setemail] = useState("")
@@ -31,8 +32,10 @@ console.log(err.message)
 }
 }
   return (
+<div className="allt">
+<div className="cent">
 
-    <div className='p-4 box'>
+    <div className='p-4 box text-center'>
         <h2 className='mb-3'>Login</h2>
         {error&&<Alert variant='danger'>{error}</Alert>}
         <Form onSubmit={handlesubmit}>
@@ -52,14 +55,16 @@ console.log(err.message)
           </div>
         </Form>
         <hr />
-        <div>
-          <GoogleButton onClick={handlegooglesignin} className='g-btn' type='dark' />
+        <div className='sel'>
+          <GoogleButton onClick={handlegooglesignin} className='g-btn ' type='dark' />
         </div>
     <div className='p-4 box mt-3 text-center'>
       Don't have an account <Link to='/register'>Sign Up</Link>
     </div>
 
     </div>
+</div>
+</div>
   )
 }
 

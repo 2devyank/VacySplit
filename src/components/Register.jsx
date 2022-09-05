@@ -3,6 +3,7 @@ import { Alert, Button, Form } from 'react-bootstrap'
 import GoogleButton from 'react-google-button'
 import { Link,useNavigate } from 'react-router-dom'
 import { useUserAuth } from '../context/UserAuthContext'
+import "../styles/Register.css"
 
 function Register() {
   const [email, setemail] = useState("")
@@ -16,14 +17,16 @@ const navigate=useNavigate();
     try{
       seterror("");
 await signup(email,password);
-navigate("/login");
+navigate("/");
     }catch(err){
 seterror(err.message);
     }
   }
   return (
-    <div>
-       <h2 className='mb-3'>Sign in</h2>
+    <div className="alll">
+<div className="cenn">
+    <div className='text-center'>
+       <h2 className='mb-3 '>Sign Up</h2>
        {error&&<Alert variant='danger'>{error}</Alert>}
         <Form onSubmit={handlesubmit}>
           <Form.Group className='mb-3'>
@@ -48,7 +51,9 @@ seterror(err.message);
           <GoogleButton className='g-btn' type='dark' />
         </div> */}
     <div className='p-4 box mt-3 text-center'>
-      have an account <Link to='/login'>Log In</Link>
+      Already have an account <Link to='/login'>Log In</Link>
+    </div>
+    </div>
     </div>
     </div>
   )

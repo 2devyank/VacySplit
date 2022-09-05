@@ -10,7 +10,7 @@ import del from "../assets/delete.png"
 import "../styles/Group.css"
 
 function Group() {
-  const {userdet,data}=useUserAuth();
+  const {userdet,data,expensive,setdata}=useUserAuth();
 //   const [data,setdata]=useState([]);
 
 // useEffect(()=>{
@@ -66,6 +66,36 @@ console.log(err);
           <td>{data.mobile}</td>
           <td>member</td>
           <td className="del" onClick={()=>handledelete(data.id)}><img src={del} style={{width:"35px"}}  /></td>
+        </tr>
+          ))}
+         
+      </tbody>
+    </Table>
+    <br />
+   <h3>
+      Previous Expenses
+     </h3>
+    <br />
+    <Table striped>
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th>Total Amount</th>
+          <th>Paid By</th>
+          <th>Share Per Person</th>
+         
+        </tr>
+      </thead>
+      <tbody>
+          {expensive.map((expensive)=>(
+        <tr>
+
+          <td>{expensive.description}</td>
+
+          <td>₹{expensive.amount}</td>
+          <td>{expensive.name}</td>
+          <td>₹{expensive.share}</td>
+          {/* <td className="del" onClick={()=>handledelete(data.id)}><img src={del} style={{width:"35px"}}  /></td> */}
         </tr>
           ))}
          

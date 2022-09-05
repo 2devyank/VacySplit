@@ -12,7 +12,7 @@ import {auth} from "../firebase";
 import { useState } from "react";
 import { useEffect } from "react";
 
-import { collection, doc, getDoc,getDocs,onSnapshot } from "firebase/firestore";
+import { collection, doc, getDoc,getDocs,onSnapshot, query, where } from "firebase/firestore";
 import { db } from '../firebase';
 
 const userAuthcontext=createContext();
@@ -21,6 +21,7 @@ export function UserAuthContextProvider({children}){
     const [user,setUser]=useState("");
     const[userdet,setuserdet]=useState({});
     const[expensive,setexpensive]=useState([]);
+    // const[money,setmoney]=useState([]);
 
     
 
@@ -68,7 +69,7 @@ return()=>{
         }
         fetchdata();
       },[])
-
+localStorage.setItem('name',userdet.name);
       const [data,setdata]=useState([]);
 
 useEffect(()=>{
@@ -91,19 +92,57 @@ useEffect(()=>{
     const fetchdata=async()=>{
       let list=[];
       try{
-         const querySnapshot=await getDocs(collection(db,"expense"));
-         querySnapshot.forEach((doc)=>{
-           list.push({id:doc.id,...doc.data()})
-           setexpensive(list);
-         })
+        const q = query(collection(db, "expense"), where("capital", "==", "true"));
+
+        //  querySnapshot.forEach((doc)=>{
+        //    list.push({id:doc.id,...doc.data()})
+        //    setexpensive(list);
+        //  })
+        onSnapshot(q, (querySnapshot) => {
+           
+            querySnapshot.forEach((doc) => {
+                list.push({id:doc.id,...doc.data()});
+                setexpensive(list);
+            });
+          
+        })
       }catch(err){
     console.log(err);
       }
     }
     fetchdata();
-    },[])
+    },[expensive])
+
+
+    // useEffect(()=>{
+    //   const fetchdata=async()=>{
+    //     let list=[];
+       
+    //       try{
+    //         const q = query(collection(db, "expense"), where("name", "==",localStorage.getItem('name')));
+    
+    //         onSnapshot(q, (querySnapshot) => {
+               
+    //             querySnapshot.forEach((doc) => {
+    //                 list.push({id:doc.id,...doc.data()});
+    //                 // list.push(doc.data().share);
+    //                 setmoney(list);
+    //             });
+              
+    //         })
+    //       }catch(err){
+    //     console.log(err);
+    //       }
+    //     }
+    //     fetchdata();
+    //     },[])
+
+// console.log(money)
+// console.log(userdet.name.toString())
+
+
 return(
-    <userAuthcontext.Provider value={{user,signup,login,logout,googlesignin,userdet,data,expensive}}>
+    <userAuthcontext.Provider value={{setdata,user,signup,login,logout,googlesignin,userdet,data,expensive}}>
         {children}
     </userAuthcontext.Provider>
 )
